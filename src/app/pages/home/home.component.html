@@ -1,0 +1,306 @@
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container">			
+            <div class="row">
+              
+                <div class="col-xl-9 col-lg-8">
+                  
+
+                   
+                   
+                    <div class="section3125 mt-30">
+                        <h4 class="item_title">Newest Courses</h4>
+                        <a [routerLink]="['/all-cour']" routerLinkActive="router-link-active"  class="see150">See all</a>
+                        <div class="la5lo1">
+                            <div  >
+                                <div class="item" *ngFor="let cour of cours"  >
+                                    <div class="fcrse_1 mb-20 " style="width: 30%; margin:5px">
+                                        <a [routerLink]="['/cour-detail',cour?._id]"  class="fcrse_img" *ngIf="cour.cover">
+                                       
+                                           
+                                                <img [src]="imagePath + cour.cover.path" style="height: 200px;">
+                                          
+                                          
+                                            <div class="course-overlay">
+                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                <div class="crse_timer" ngfor>
+                                                    12 hours
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="fcrse_content">
+                                            <div class="eps_dots more_dropdown">
+                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                <div class="dropdown-content">
+                                                    <span><i class='uil uil-share-alt'></i>Share</span>
+                                                    <span (click)="createFavoris(cour?._id)" ><i class="uil uil-clock-three"></i>Save</span>
+                                                  
+                                                 </div>																											
+                                            </div>
+                                            <div class="vdtodt">
+                                                <span >15 views | </span>
+                                                <span class="vdt14">{{cour.createdOn |date}}</span>
+                                            </div>
+                                            <a class="crse14s" [routerLink]="['/cour-detail/'+ cour?._id]" routerLinkActive="router-link-active" >{{cour.subtitle}}</a>
+                                            <a href="#" class="crse-cate">{{cour?.speciality_id?.speciality_name_en}} | {{cour?.filiere_id?.filiere_name_en}}</a>
+                                            <div class="auth1lnkprce">
+                                                <p class="cr1fot">By <a [routerLink]="['/profil/'+cour?.teacher_id?._id]"  >{{cour?.teacher_id?.firstname}} {{cour?.teacher_id?.lastname}}</a></p>
+                                                <div class="prce142">{{cour?.price}} $</div>
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+                 
+
+
+
+                    <div class="section3125 mt-50 mb-50">
+                        <h4 class="item_title">Popular Instructors</h4>
+                        <a [routerLink]="['/list-teachers']"  class="see150">See all</a>
+                        <div class="la5lo1" >
+                          
+                            <div class="  owl-carousel top_instrutors owl-theme " >
+                         
+                                <ng-container  class="item" *ngFor="let e of allEnseignant" >
+                                    <div class="fcrse_1 mb-20" style="width: 30%; margin:5px" [routerLink]="['/profil/'+e?._id]" >
+                                        <div class="tutor_img">
+                                            <a >
+                                                <img [src]="imagePath+e.photo?.path" alt=""></a>												
+                                        </div>
+                                        <div class="tutor_content_dt">
+                                            <div class="tutor150">
+                                                <a  class="tutor_name">{{e.firstname}}</a>
+                                                <div class="mef78" title="Verify">
+                                                    <i class="uil uil-check-circle"></i>
+                                                </div>
+                                            </div>
+                                           
+                                         
+                                            <div class="tut1250">
+                                                <span class="vdt15">100K Students</span>
+                                                <span class="vdt15">15 Courses</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </ng-container>
+                                
+                            </div>
+                       
+                        </div>
+                    </div>	
+
+
+
+                    <div class="section3125 mt-50">
+                        <h4 class="item_title">Featured Courses</h4>
+                        <a [routerLink]="['/']"   class="see150">See all</a>
+                        <div class="la5lo1">
+                            <div class="owl-carousel featured_courses owl-theme">
+                                <div class="item">
+                                    <div class="fcrse_1 mb-20">
+                                        <a [routerLink]="['/']" class="fcrse_img">
+                                            <img src="assets/elect.png" alt="" style="height:200px;width:200px">
+                                            <div class="course-overlay">
+                                                <div class="badge_seller">Bestseller</div>
+                                                <div class="crse_reviews">
+                                                    <i class='uil uil-star'></i>4.5
+                                                </div>
+                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                <div class="crse_timer">
+                                                    25 hours
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="fcrse_content">
+                                            <div class="eps_dots more_dropdown">
+                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                <div class="dropdown-content">
+                                                    <span><i class='uil uil-share-alt'></i>Share</span>
+                                                    <span><i class="uil uil-clock-three"></i>Save</span>
+                                                    <span><i class='uil uil-ban'></i>Not Interested</span>
+                                                    <span><i class="uil uil-windsock"></i>Report</span>
+                                                 </div>																										
+                                            </div>
+                                            <div class="vdtodt">
+                                                <span class="vdt14">109k views</span>
+                                                <span class="vdt14">15 days ago</span>
+                                            </div>
+                                            <a href="course_detail_view.html" class="crse14s">Complete Electron : Go from zero to hero</a>
+                                            <a href="#" class="crse-cate">Web Development | Electron</a>
+                                            <div class="auth1lnkprce">
+                                                <p class="cr1fot">By <a >Bilel</a></p>
+                                                <div class="prce142">$10</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="fcrse_1 mb-20">
+                                        <a href="course_detail_view.html" class="fcrse_img">
+                                            <img src="assets/re.png" alt="" style="height:200px;">
+                                            <div class="course-overlay">
+                                                <div class="badge_seller">Bestseller</div>
+                                                <div class="crse_reviews">
+                                                    <i class='uil uil-star'></i>4.5
+                                                </div>
+                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                <div class="crse_timer">
+                                                    25 hours
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="fcrse_content">
+                                            <div class="eps_dots more_dropdown">
+                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                <div class="dropdown-content">
+                                                    <span><i class='uil uil-share-alt'></i>Share</span>
+                                                    <span><i class="uil uil-clock-three"></i>Save</span>
+                                                    <span><i class='uil uil-ban'></i>Not Interested</span>
+                                                    <span><i class="uil uil-windsock"></i>Report</span>
+                                                 </div>																										
+                                            </div>
+                                            <div class="vdtodt">
+                                                <span class="vdt14">109k views</span>
+                                                <span class="vdt14">15 days ago</span>
+                                            </div>
+                                            <a href="course_detail_view.html" class="crse14s">Complete React Js: Go from zero to hero </a>
+                                            <a href="#" class="crse-cate">Web Development | React Js</a>
+                                            <div class="auth1lnkprce">
+                                                <p class="cr1fot">By <a href="#">Amen</a></p>
+                                                <div class="prce142">$10</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+               
+
+                 
+
+    
+
+
+
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                    <div class="right_side">
+                        <div class="fcrse_2 mb-30">
+                            <div class="tutor_img">
+                                <a *ngIf="decodedToken?.role=='enseignant' " [routerLink]="['/profil',user?._id]"  >
+                                    
+                                    <img [src]="imagePath+ user?.photo?.path" alt="iamge_profile"   ></a>	
+                                    
+                                    <a *ngIf="decodedToken?.role=='user' " [routerLink]="['/setting']"  >
+                                    
+                                        <img [src]="imagePath+ user?.photo?.path" alt="iamge_profile"   ></a>
+                            </div>
+                            <div class="tutor_content_dt">
+                                <div class="tutor150">
+                                    <a [routerLink]="['/profil',user?._id]"   class="tutor_name">
+                                        {{user?.firstname}}
+                                       </a>
+                                  
+                                </div>
+                                <div  class="tutor_cate">{{user?.short_description}}</div>
+                                <ul class="tutor_social_links">
+                                    <li><a href={{user?.facebook}} class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                                   
+                                    <li><a href={{user?.linkedin}} class="ln"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href={{user?.youtube}} class="yu"><i class="fab fa-youtube"></i></a></li>
+                                </ul>
+                                <div class="tut1250" *ngIf="decodedToken?.role=='enseignant'">
+                                   
+                                    <span class="vdt15">615K Students</span>
+                                    <span class="vdt15">{{nbrCours}} Courses</span>
+                                </div>
+                                
+                                <a *ngIf="decodedToken?.role=='enseignant'" [routerLink]="['/profil',user?._id]"  class="prfle12link">Go To Profile</a>
+                                <a *ngIf="decodedToken?.role=='user'"[routerLink]="['/setting']"  class="prfle12link">Setting Profil</a>
+                            </div> 
+                        </div>
+                        <div class="get1452">
+                            <h4>Get personalized Question DAY</h4>
+                            <p>Answer a few questions for your top picks</p>
+                            <button class="Get_btn" [routerLink]="['/']" >Question DAY</button>
+                        </div>
+                       
+                        <div class="fcrse_3">
+                            <div class="cater_ttle">
+                                <h4>Top Teacher</h4>
+                            </div>
+                            <ul class="allcate15">
+                                <li><a href="#" class="ct_item"><i class='uil uil-arrow'></i>Development</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-graph-bar'></i>Business</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-monitor'></i>IT and Software</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-ruler'></i>Design</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-chart-line'></i>Marketing</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-book-open'></i>Personal Development</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-camera'></i>Photography</a></li>
+                                <li><a href="#" class="ct_item"><i class='uil uil-music'></i>Music</a></li>
+                            </ul>
+                        </div>
+                         <div class="fcrse_3">
+                            <div class="cater_ttle">
+                                <h4>Calandrier</h4>
+                            </div>
+                            <div class="live_text">
+                                <div class="live_icon"><i class="uil uil-kayak"></i></div>
+                                <div class="live-content">
+                                    <p>Set up your channel and stream live to your students</p>
+                                    <a class="live_link" [routerLink]="['/live-stream']"  >Get Started</a>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        
+   
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer class="footer mt-10 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="item_f1">
+                        <a [routerLink]="['/about']" 
+                         >About</a>
+                        <a href="contact_us.html">Contact Us</a>
+                        <a href="coming_soon.html">Developers</a>
+                        <a href="contact_us.html">Contact Us</a>
+                        <a href="coming_soon.html">Developers</a>
+    
+                            <div class="edu_social_links mb-10">
+                                <a target="_blank"
+                                href="https://www.facebook.com/runcode1tn" >
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                                <a target="_blank"
+                                 href="https://www.instagram.com/runcode.tn/?fbclid=IwAR2muBs3Vf8IfeB_EMVw5_1WfUMm_DOVplOOZMyCI0glUabDG346qAF3rOE" target="_blank" >
+                                 <i class="fab fa-instagram"></i></a>
+                            </div>
+                                
+                    
+                    </div>
+                </div>
+               
+                
+                
+               
+              
+            </div>
+        </div>
+    </footer>
+</div>

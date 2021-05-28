@@ -1,0 +1,125 @@
+<div class="wrapper _bg4586">
+    
+   
+    <div class="_215b17">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="course_tab_content">
+                        <div class="tab-content" id="nav-tabContent">
+                            
+                            <div role="tabpanel">
+                                <div class="student_reviews">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="review_right">
+                                                <div class="review_right_heading">
+                                                    <h3>Discussions</h3>
+                                                </div>
+                                            </div>
+                                            <div class="cmmnt_1526">
+                                                <div class="cmnt_group">
+                                                    <div class="img160">
+                                                        <img [src]="imagePath+user?.photo?.path" alt="">									
+                                                    </div>
+                                                    <textarea
+                                                    [(ngModel)]="newQuestion" name="newQuestion" 
+                                                
+                                                    class="_cmnt001" placeholder="Ajouter une réponse :)"></textarea>
+                                                </div>
+                                                <button class="cmnt-btn" type="submit"      (click)="createQuestion()" >Comment</button>
+                                            </div>
+
+                                            <div class="review_all120" *ngFor="let q of listQuestion;let i=index">
+                                                <div class="review_item">
+                                                    <div class="review_usr_dt" [routerLink]="['/profil/'+q.user_id?._id]">
+                                                        <img [src]="imagePath + q.user_id?.photo?.path" alt="">
+                                                        <div class="rv1458">
+                                                            <h4 class="tutor_name1"  routerLinkActive="router-link-active" >{{q.user_id?.firstname}}</h4>
+                                                            <span class="time_145">parue il y'a {{q.createdOn| daysAgo}}</span>
+                                                            <span *ngIf="showEdit!=i">     {{q.question }}</span>
+                                                       
+
+                                                    <textarea
+                                                    name="ed" *ngIf="showEdit==i"
+                                                    (keyup.enter)="EditCom(q._id,$event.target.value)" [value]="q.question"
+                                                    class="_cmnt001" placeholder="Add a public comment"></textarea>
+                                                        </div>
+                                                        <div class="eps_dots more_dropdown"*ngIf="decodedToken._id==q.user_id?._id">
+                                                            <i class="uil uil-ellipsis-v"></i>
+                                                            <div class="dropdown-content" >
+                                                                <span (click)="showCom(i)"><i class='uil uil-comment-alt-edit'></i>Edit</span>
+                                                                <span (click)="DeleteCom(q._id)"><i class='uil uil-trash-alt'></i>Delete</span>
+                                                            </div>																											
+                                                        </div>
+                                                    </div>
+                                                    <p class="rvds10" >
+                                                    
+                                                    </p>
+
+                                                    <div class="rpt101">
+                                                        <a (click)="createLike(decodedToken._id,q._id,undefined)"class="report155"
+                                                        [style.color]="styleColorQ(q._id)">
+                                                            <i class='uil uil-thumbs-up'></i>{{getLikesQ(q._id)}}</a>
+      
+                                                        
+                                                        <a (click)="showReply(i)" class="report155 ml-3">Reply</a>
+                                                    </div>
+                                                    
+                                                    <textarea style="width: 900px;height: 150px;"
+                                                    name="newReponse" *ngIf="showRep==i"
+                                                    (keyup.enter)="createReponse(q._id,$event.target.value)"
+                                                    
+                                                    class="_cmnt001" placeholder="Add a public comment... :) :)"></textarea>
+                                                    
+                                                </div>
+                                                <div class="review_reply">
+                                                    <div class="review_item" *ngFor="let r of q.listeReponses;">
+                                                        <div class="review_usr_dt" >
+                                                            <img [src]="imagePath+getUser(r.user_id)?.photo?.path" alt="">
+                                                            <div class="rv1458" [routerLink]="['/profil/'+r.user_id]">
+                                                                <h4 class="tutor_name1">{{getUser(r.user_id)?.firstname}}</h4>
+                                                                <span class="time_145">parue il y'a {{r.createdOn| daysAgo}} </span>
+                                                               
+                                                            </div>
+   
+                                                            <div class="eps_dots more_dropdown" *ngIf="decodedToken._id==r.user_id">
+                                                                <a ><i class="uil uil-ellipsis-v"></i></a>
+                                                                <div class="dropdown-content" >
+                                                                    <span (click)="showEditRep(r._id)" ><i class='uil uil-comment-alt-edit'></i>Edit</span>
+                                                                    <span (click)="DeleteRep(r._id)" ><i class='uil uil-trash-alt'></i>Delete</span>
+                                                                </div>																											
+                                                            </div>
+                                                        </div>
+                                                        <p class="rvds10"  *ngIf="showReplyEdit!=r._id">{{r.reponse}}</p>
+
+                                                        <textarea
+                                                        name="ed" *ngIf="showReplyEdit==r._id"
+                                                        (keyup.enter)="EditRep(r._id,$event.target.value)" [value]="r.reponse"
+                                                        class="_cmnt001" placeholder="Add a public comment"></textarea>
+
+                                                        <div class="rpt101">
+                                                            <a (click)="createLike(decodedToken._id,undefined,r._id)" 
+                                                             [style.color]="styleColor(r._id)"
+                                                            class="report155"><i class='uil uil-thumbs-up'></i>
+                                                            {{getLikesR(r._id)}}
+                                                            </a>
+                                                           
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

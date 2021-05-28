@@ -1,0 +1,111 @@
+<div class="wrapper">
+    <div class="_215b17">
+        <div class="container">			
+            <div class="row">
+                <div class="col-lg-12">	
+                    <h2 class="st_title"><i class="uil uil-book-alt"></i>Courses</h2>
+                </div>			
+               					
+            </div>
+
+
+            <div class="wrapper _bg4586 _new89" *ngIf="myCources?.length==0">
+            <div class="_205ef5">
+                <div class="container">
+                    <div class="row">
+                        					
+                        <div class="col-lg-12" >
+                            <div class="press_news" >
+                                
+                                <div class="press_item mt-35 " style="
+                                    margin: 0 auto;
+                                    width: auto; ">
+                                   
+                                    <h4  class="blog_des text-center">No cours yet .....!!!!</h4>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>					
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="row" *ngIf="myCources.length>0">
+                <div class="col-md-12">
+                    <div class="my_courses_tabs">
+                        <ul class="nav nav-pills " id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-my-courses-tab" data-toggle="pill" 
+                                href="" role="tab" aria-controls="pills-my-courses" aria-selected="true">
+                                    <i class="uil uil-book-alt"></i>My Courses</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-my-courses" role="tabpanel">
+                                <div class="table-responsive mt-30">
+                                    <table class="table ucp-table">
+                                        <thead class="thead-s">
+                                            <tr>
+                                                <th class="text-center" scope="col">Item No.</th>
+                                                <th>Title</th>
+                                                <th class="text-center" scope="col">Publish Date</th>
+                                                <th class="text-center" scope="col">Sales</th>
+                                                <th class="text-center" scope="col">Parts</th>
+                                                <th class="text-center" scope="col">Category</th>
+                                                <th class="text-center" scope="col">View</th>
+                                                <th class="text-center" scope="col">QCM</th>
+                                                <th class="text-center" scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr  *ngFor="let item of myCources;let i=index;">
+                                                <td class="text-center"> {{i+1}}</td>
+                                                <td>{{item.course_name}}</td>
+                                                <td class="text-center"> {{item.createdOn| date}}</td>
+                                                <td class="text-center">{{item.price}}</td>
+                                                <td class="text-center">......</td>
+                                                <td class="text-center">
+                                                    
+                                                    
+                            
+                                                        <span [ngSwitch]="translate.currentLang">
+                                                            <span *ngSwitchCase="'en'">{{item.category_id?.category_name_en}} </span>
+                                                            <span *ngSwitchCase="'ar'">{{item.category_id?.category_name_ar}} </span>
+                                                            <span *ngSwitchCase="'fr'">{{item.category_id?.category_name_fr}} </span>
+                                                        </span> 
+                                                </td>
+                                                <td class="text-center"><b class="course_active">{{item.status  ?  "active":"disactive"}}</b></td>
+                                                <td class="text-center">
+                                                    <b class="course_active" [routerLink]="['/add-qcm/'+item._id]">
+                                                        <span class="iconify" data-icon="bi:file-earmark-plus" data-inline="false">kkkk</span>
+                                                       
+                                                    </b>
+                                                </td>
+                                                <td class="text-center">
+                                                 
+                                        <a [routerLink]="['/editCoursTeacher/'+item._id]" routerLinkActive="router-link-active"  title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
+                                        <a (click)="removeMyCours(item._id)" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                           
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          
+                        
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+   
+</div>

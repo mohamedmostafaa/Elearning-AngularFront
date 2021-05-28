@@ -1,0 +1,59 @@
+
+<div class="wrapper" >
+    <div class="sa4d25">
+        <button class="btn btn-warning" (click)="ExportToPDF()">
+            Exporter PDF</button>
+       
+    </div>
+    <div class="faq1256" id="qcm">
+        <div class="container">
+            <div class="row">					
+                <div class="container-fluid"  >	
+           	
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="st_title"><i class='uil uil-cog'></i> Qcm Solution</h2>
+                           
+                           
+                           
+                            <div class="title126" style="padding-top: 20px;">	
+                                <h3>  la solution de dernier {{cour.course_name}} Test Qcm est décrit ci-dessus :</h3>
+        
+                                <h3>  Result :  <span class="text-danger">  {{score}} </span></h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6" >
+                    <div class="certi_form" >
+                        <div class="all_ques_lest" id="qcm_id">
+                            <div class="ques_item" *ngFor="let q of qcm;let i=index">
+                                <div class="ques_title">
+                                    <span>Ques {{i+1}}:-</span>
+                                 {{q.title}}
+                                </div>
+                                <div class="ui form">
+                                    <div class="grouped fields">										
+                                        <div class="field fltr-radio" *ngFor="let r of q.reponseqcm">
+                                            <div class="ui radio checkbox">
+                                                <input disabled [checked]="r.isValid" type="radio" [name]="'rep'+q._id" >
+                                                <label>{{r.reponse}}</label>
+                                              </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+</div>
+

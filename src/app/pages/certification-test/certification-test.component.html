@@ -1,0 +1,76 @@
+<div class="wrapper _bg4586 _new89">		
+    <div class="_215b15">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">						
+                    <div class="title125">						
+                        
+                        <div class="titleright">						
+                            <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="blog_link"><i class="uil uil-angle-double-left"></i>Back to Certification Center</a>
+                        </div>
+                    </div>
+                    <div class="title126">	
+                        <h2>Test View</h2>
+
+                        <h2>    {{score}}</h2>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faq1256">
+        <div class="container">
+            <div class="row">					
+                <div class="col-lg-4 col-md-6">
+                    <div class="certi_form rght1528">
+                        <div class="test_timer_bg">
+                            <ul class="test_timer_left">
+                                <li>
+                                    <div class="timer_time">
+                                        <h4>20</h4>
+                                        <p>Questions</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timer_time">
+                                        <h4 id="timer"></h4>
+                                        <p>Minutes</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="certi_form">
+                        <div class="all_ques_lest">
+                            <div class="ques_item" *ngFor="let q of qcm;let i=index">
+                                <div class="ques_title">
+                                    <span>Ques {{i+1}}:-</span>
+                                 {{q.title}}
+                                </div>
+                                <div class="ui form">
+                                    <div class="grouped fields">										
+                                        <div class="field fltr-radio" *ngFor="let r of q.reponseqcm">
+                                            <div class="ui radio checkbox">
+                                                <input (click)="Rep($event.target.checked,q._id,r)" type="radio" [name]="'rep'+q._id" required>
+                                                <label>{{r.reponse}}</label>
+                                              </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <button class="test_submit_btn" type="submit" (click)="saveQCM()">Submit Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+</div>
+

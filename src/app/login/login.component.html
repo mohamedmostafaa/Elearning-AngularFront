@@ -1,0 +1,133 @@
+<!-- Signup Start -->
+
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">  <a href="index.html"><img src="assets/image/cour.png"  alt=""></a></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarColor03">
+              <ul class="navbar-nav ml-auto">
+             
+                <li class="nav-item" >
+                  <a class="nav-link" [routerLink]="['/signup']" style="color: red;font-weight:600px;font-size: 1.5rem;font-style: italic" >inscrire</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  style="color: red;font-weight:600px;font-size: 1.5rem;font-style: italic;" >Login</a>
+                </li>
+             
+              </ul>
+            
+            </div>
+          </nav>
+<div class="row">
+<div class="col-lg-8 col-ms-8 col-sm-8" >
+    <video  autoplay controls muted id="v1" width="800">    
+    <source src="assets/images/video1.mp4" type="video/mp4" >
+    </video>
+</div>
+
+<div  class="col-lg-4 col-ms-4 col-sm-4">
+<div class="sign_form">
+            <h2>Bienvenue</h2>
+            <p>Connectez-vous à votre compte!</p>
+            <div *ngIf=" errMsgConfirm|| ''" class="alert alert-danger">
+                compte non encore confirmee...!!!
+            
+            
+            </div>
+            <div *ngIf=" submitted && (errMsgPwd ||errMsgEmail)" class="alert alert-danger">
+                {{errMsgPwd}} {{errMsgEmail}}
+                </div>
+            <form [formGroup]="formLogin" (ngSubmit)="login()">
+                <div class="ui search focus mt-15">
+                   
+                    <div class="ui left icon input swdh95">
+                <input type="email" formControlName="email" autofocus
+                id="email" placeholder="email@gmail.com">
+                <i class="uil uil-envelope icon icon2"></i>
+                    </div>
+                   
+<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+<div *ngIf="email.errors.required">
+Email is required.
+</div>
+<div *ngIf="email.errors.email">
+Email must be like c@gmail.com
+</div>
+</div>
+
+
+                </div>
+                <div class="ui search focus mt-15">
+                   
+                    <div class="ui left icon input swdh95">
+                        
+                        
+                        <input type="password" formControlName="password" id="password" placeholder=" Mot de passe">
+                        <i class="uil uil-key-skeleton-alt icon icon2"></i>
+                    </div>
+                    
+                    
+
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                        <div *ngIf="password.errors.required">
+                            Password is required.
+                        </div>
+                        <div *ngIf="password.errors.minLength">
+                          minlength 1 carac
+                        </div>
+                        
+                      
+                      </div>
+
+                  <div class="form-check mt-5" >
+                  
+                  <label class="form-check-label" for="1">Souviens-toi de moi</label>
+                  <input type="checkbox" formControlName="checkbox" [(ngModel)]="rember" class="form-check-input" id="1">
+
+                </div>
+                </div>
+               
+
+              
+             <!-- 
+                  <div class="ui form mt-30 checkbox_sign">
+                    <div class="inline field">
+                        <div class="ui checkbox mncheck">
+                         
+                            <label>Souviens-toi de moi</label>
+                        </div>
+                    </div>
+                </div>
+             -->
+                <button class="login-btn" type="submit" [disabled]="formLogin.invalid">
+                    
+                    S'identifier</button>
+
+            </form>
+<!-- 
+  <p class="sgntrm145">Ou <a routerLink="/forgot_password">mot de passe oublié</a>.</p>
+    <p class="mb-0 mt-30 hvsng145"> Vous n'avez pas de compte?<a routerLink="/signup">S'inscrire</a></p>
+-->
+          
+          
+</div>
+      
+</div>
+
+</div>
+
+       
+        
+        
+     
+     
+    </div>
+
+

@@ -1,0 +1,92 @@
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container-fluid">			
+            <div class="row">
+                <div class="col-lg-12">	
+                    <h2 class="st_title"><i class="uil uil-bell"></i> Resultat de {{query}} </h2>
+                </div>					
+            </div>				
+            <div class="row">
+                <div style="margin: 0 auto;">
+
+
+
+
+<div class="wrapper _bg4586 _new89" *ngIf=" (!courSearch && !userSearch) || (courSearch.length==0 && userSearch.length==0)  ">
+    <div class="_205ef5">
+        <div class="container">
+            <div class="row">
+                                    
+                <div class="col-lg-12" >
+                    <div class="press_news" >
+                        
+                        <div class="press_item mt-35 " style="
+                            margin: 0 auto;
+                            width: auto; ">
+                           
+                            <h1  >Oupps... ! {{query}} non existant</h1>
+                            
+                        </div>
+                    </div>
+                    
+                </div>					
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+         
+    
+    </div>
+                <div class="col-12">
+                  
+                    <div class="all_msg_bg" *ngFor="let item of userSearch"
+                  >
+                        <div class="channel_my item all__noti5" [routerLink]="['/profil/'+ item._id]" routerLinkActive="router-link-active" >
+                            <div class="profile_link">
+                                <img [src]="imagePath + item.photo?.path" alt="">
+                                <div class="pd_content">
+                                    <h6>{{item.firstname}}</h6>
+                                    <p class="noti__text5">
+                                     ---
+                                    </p>
+                                    <span class="nm_time">{{item.createdOn|date}}</span>
+                                </div>							
+                            </div>							
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+
+                <div class="col-12">
+                  
+                    <div class="all_msg_bg" *ngFor="let item of courSearch"
+                  >
+  
+                        <div class="channel_my item all__noti5" [routerLink]="['/cour-detail/'+ item._id]" routerLinkActive="router-link-active" >
+                            <div class="profile_link">
+                                <img [src]="imagePath + item.cover?.path" alt="">
+                                <div class="pd_content">
+                                    <h6>{{item.course_name}}</h6>
+                                    <p class="noti__text5">
+                                     ---
+                                    </p>
+                                    <span class="nm_time">{{item.createdOn|date}}</span>
+                                </div>							
+                            </div>							
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+

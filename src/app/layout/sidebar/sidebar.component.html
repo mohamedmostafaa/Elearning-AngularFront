@@ -1,0 +1,86 @@
+<nav class="vertical_nav">
+    <div class="left_section menu_left" id="js-menu" >
+        <div class="left_section">
+            <ul>
+                <li class="menu--item">
+                    <a [routerLink]="['/home']" class="menu--link active" title="Home">
+                        <i class='uil uil-home-alt menu--icon'></i>
+                        <span class="menu--label">{{'Acceuil' | translate}}</span>
+                    </a>
+                </li>
+              
+                <li class="menu--item">
+                    <a [routerLink]="['/forum']"   class="menu--link" title="Help">
+                        <i class='uil uil-question-circle menu--icon'></i>
+                        <span class="menu--label">Forum</span>
+                    </a>
+                </li>
+                <li class="menu--item" *ngIf="user?.role=='enseignant'">
+                    <a [routerLink]="['/gestion-cours']" routerLinkActive="router-link-active"  class="menu--link" title="Categories">
+                        <i class='uil uil-layers menu--icon'></i>
+                        <span class="menu--label">Cours</span>
+                    </a>
+                </li>
+
+                <li class="menu--item">
+                    <a  [routerLink]="['/saved']" routerLinkActive="router-link-active"  class="menu--link" title="Saved Courses">
+                      <i class="uil uil-heart-alt menu--icon"></i>
+                      <span class="menu--label"> Cours Fsavoris</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a [routerLink]="['/gestion-categories']" routerLinkActive="router-link-active"  class="menu--link" title="Categories">
+                        <i class='uil uil-layers menu--icon'></i>
+                        <span class="menu--label">Categories</span>
+                    </a>
+                </li>
+              
+              
+              
+               
+            </ul>
+        </div>
+       
+        <div class="left_section pt-2">
+            <ul>
+               
+                <li class="menu--item">
+                    <a [routerLink]="['/notification']"   class="menu--link" title="Notifications">
+                      <i class='uil uil-bell menu--icon'></i>
+                      <span class="menu--label">Notifications</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a  [routerLink]="['/contact-us']"  class="menu--link" title="Send Feedback">
+                        <i class='uil uil-comment-alt-exclamation menu--icon'></i>
+                        <span class="menu--label">Send Feedback</span>
+                    </a>
+                </li>
+              
+              
+                <li class="menu--item">
+                    <a [routerLink]="['/message']"  class="menu--link" title="Messages">
+                        <i class='uil uil-comments menu--icon'></i>
+                        <span class="menu--label">Messages</span>
+                    </a>
+                </li>
+              
+            </ul>
+        </div>
+        <div class="left_footer">
+            <ul>
+                <li><a [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
+               
+                <li><a [routerLink]="['/contact-us']" >Contact Us</a></li>
+               
+                <li><a href="coming_soon.html">Developers</a></li>
+                <li><a href="terms_of_use.html">Copyright</a></li>
+                <li><a href="terms_of_use.html">Privacy Policy</a></li>
+                
+            </ul>
+            <div class="left_footer_content">
+                <p>© 2020 <strong>Cursus</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</nav>

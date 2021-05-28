@@ -1,0 +1,199 @@
+<div class="wrapper _bg4586">
+    <div class="_216b01">
+        <div class="container-fluid">			
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="section3125 rpt145">							
+                        <div class="row">						
+                            <div class="col-lg-7">
+        
+                                <div class="dp_dt150">						
+                                    <div class="img148">
+                                        <img [src]="imagePath+user?.photo?.path" alt="bbbbb">										
+                                    </div>
+                                    <div class="prfledt1">
+                                        <h2>{{user?.firstname}}</h2>
+                                        <span>{{user?.short_description}}</span>
+                                    </div>										
+                                </div>
+                                <ul class="_ttl120" >
+                                    <li *ngIf="user?.role=='enseignant'">
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Enroll Students</div>
+                                            <div class="_ttl123">0</div>
+                                        </div>
+                                    </li>
+                                    <li *ngIf="user?.role=='enseignant'">
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Courses</div>
+                                            <div class="_ttl123">{{nbrCours}}</div>
+                                        </div>
+                                    </li>
+                                    <li *ngIf="user?.role=='enseignant'">
+                                        <div class="_ttl121">
+                                            <div class="_ttl122">Reviews</div>
+                                            <div class="_ttl123">0</div>
+                                        </div>
+                                    </li>
+                                    <li >
+                                        <div class="_ttl121" >
+                                            <div class="_ttl122">Subscriptions</div>
+                                            <div class="_ttl123">0</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+   
+                                <div class="rgt-145">
+                                    <ul class="tutor_social_links">
+                                        <li><a href={{user?.facebook}} class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                                   
+                                    <li><a href={{user?.linkedin}} class="ln"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href={{user?.youtube}} class="yu"><i class="fab fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                                <ul class="_bty149" *ngIf="decodedToken._id==user?._id">
+                                    <li><button class="studio-link-btn btn500" [routerLink]="['/setting']"  >setting</button></li>								
+                                   
+                                </ul>
+                                <ul class="_bty149" *ngIf="decodedToken._id!=user?._id && user?.role=='enseignant'">
+                                    <li><button class="studio-link-btn btn500" (click)="createSubscribe()" *ngIf="!isSubscribe" >subscribe</button></li>	
+                                    <li><button class="studio-link-btn btn500" (click)="createUnSubscribe()" *ngIf="isSubscribe">unsubscribe</button></li>							
+                                   
+                                </ul>
+                                
+                            </div>													
+                        </div>							
+                    </div>							
+                </div>															
+            </div>
+        </div>
+    </div>
+    <div class="_215b15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">						
+                    <div class="course_tabs">
+                        <nav>
+                            <div class="nav nav-tabs tab_crse" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
+                                <a *ngIf="user?.role=='enseignant'" class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses</a>
+
+                                <a class="nav-item nav-link" id="nav-subscriptions-tab" data-toggle="tab" href="#nav-subscriptions" role="tab" aria-selected="false">Subscriptions</a>
+                            </div>
+                        </nav>						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="_215b17">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="course_tab_content">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
+                                <div class="_htg451">
+                                    <div class="_htg452">
+                                        <h3>About Me</h3>
+                                        <p>
+                                            {{user?.about}}
+                                        </p>
+                                    </div>																	
+                                </div>							
+                            </div>
+                            <div *ngIf="user?.role=='enseignant'" class="tab-pane fade" id="nav-courses" role="tabpanel">
+                                <div class="crse_content">
+                                    <h3>My courses ({{nbrCours}})</h3>
+                                    <div class="_14d25">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4" *ngFor="let item of cour">
+                                                <div class="fcrse_1 mt-30" >
+                                                    <a [routerLink]="['/cour-detail',item._id]" class="fcrse_img">
+                                                        <img [src]="imagePath+ item.cover?.path" alt="">
+                                                        <div class="course-overlay">
+                                                            
+                                                            <div class="crse_reviews">
+                                                                <i class="uil uil-star"></i>4.5
+                                                            </div>
+                                                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                            <div class="crse_timer">
+                                                                25 hours
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="fcrse_content">
+                                                        <div class="eps_dots more_dropdown">
+                                                            <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                                                            <div class="dropdown-content">
+                                                                <span><i class="uil uil-share-alt"></i>Share</span>
+                                                                <span><i class="uil uil-edit-alt"></i>Edit</span>
+                                                            </div>																											
+                                                        </div>
+                                                        <div class="vdtodt">
+                                                            <span class="vdt14">109k views</span>
+                                                            <span class="vdt14">{{item.createdOn | date}}</span>
+                                                        </div>
+                                                        <a href="course_detail_view.html" class="crse14s">
+                                                           {{item.description}}</a>
+                                                        <a href="#" class="crse-cate">Web Development | {{item.course_name}}</a>
+                                                        <div class="auth1lnkprce">
+                                                            <p class="cr1fot">By <a href="#">{{user.firstname}}</a></p>
+                                                            <div class="prce142">${{item.price}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>	
+                                            </div>
+                                        </div>		
+                                    </div>		
+                                </div>
+                            </div>
+                          
+                            
+                            <div class="tab-pane fade show" id="nav-subscriptions" role="tabpanel">
+                                <div class="_htg451">
+                                    <div class="_htg452">
+                                        <h3>Subscriptions</h3>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4" *ngFor="let item of Tsub">
+                                                <div class="fcrse_1 mt-30">
+                                                    <div class="tutor_img">
+                                                        <a [routerLink]="['/profil/'+item.teacher_id._id]" ><img [src]="imagePath + item.teacher_id?.photo?.path" alt=""></a>												
+                                                    </div>
+                                                    <div class="tutor_content_dt">
+                                                        <div class="tutor150">
+                                                            <a (click)="openProfil(item)" 
+                                                            routerLinkActive="router-link-active"  class="tutor_name">
+                                                            {{ user.role == 'enseignant' ? 
+                                                                item.student_id?.firstname :item.teacher_id?.firstname }}</a>
+                                                            <div class="mef78" title="Verify">
+                                                                <i class="uil uil-check-circle"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tutor_cate">Wordpress &amp; Plugin Tutor</div>
+                                                        <ul class="tutor_social_links">
+                                                            <li><button class="sbbc145">Subscribed</button></li>
+                                                            <li><button class="sbbc146"><i class="uil uil-bell"></i></button></li>
+                                                        </ul>
+                                                        <div class="tut1250">
+                                                            <span class="vdt15">100K Students</span>
+                                                            <span class="vdt15">15 Courses</span>
+                                                        </div>
+                                                    </div>
+                                                </div>										
+                                            </div>
+                                            
+                                        </div>				
+                                    </div>																	
+                                </div>							
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

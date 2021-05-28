@@ -1,0 +1,77 @@
+<div class="wrapper">
+  
+    <div class="sa4d25">
+        <div class="container-fluid">			
+            <div class="row">
+                <div class="col-lg-3 col-md-4 ">
+                    <div class="section3125 hstry142">
+                        <div class="grp_titles pt-0">
+                            <div class="ht_title">Saved Courses
+
+
+                            </div>
+                           
+                        </div>
+                        <div class="tb_145">
+                            <div class="wtch125">
+                                <span class="vdt14">{{tabFavoris?.length}} Courses 
+
+                                    
+                                  
+                                </span>
+                            </div>
+                            <a (click)="deleteSelectionFavoris()" class="rmv-btn" *ngIf="tabFavoris?.length>1">
+                                <i class='uil uil-trash-alt'></i>Remove Saved Courses</a>
+                        </div>						
+                    </div>							
+                </div>					
+                <div class="col-md-9">
+                    <div class="_14d25 mb-20">						
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="mhs_title">Saved Courses</h4>
+                                <div class="fcrse_1" *ngFor="let fav of tabFavoris" style="margin-bottom: 20px;">
+                                    <a class="hf_img" [routerLink]="['/cour-detail/'+fav.course_id?._id]" >
+                                        <img [src]="imagePath+fav.course_id?.cover?.path" alt="" style="height: 200px;">
+                                        <div class="course-overlay">
+                                            <div class="badge_seller">Bestseller</div>
+                                            <div class="crse_reviews">
+                                                <i class="uil uil-star"></i>4.5
+                                            </div>
+                                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                            <div class="crse_timer">
+                                                25 hours
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="hs_content">
+                                        <div class="eps_dots eps_dots10 more_dropdown" >
+                                            <a><i class="uil uil-ellipsis-v"></i></a>
+                                            <div class="dropdown-content" >
+                                                <span (click)="deleteOneFavoris(fav.user_id?._id,fav.course_id?._id)">Remove</span>															
+                                            </div>																											
+                                        </div>
+                                        <div class="vdtodt">
+                                            <span class="vdt14">109k views</span>
+                                            <span class="vdt14">{{fav.createdOn|date}}</span>
+                                        </div>
+                                        <a href="course_detail_view.html" class="crse14s title900">
+                                           {{fav.course_id?.description}}</a>
+                                        <a href="#" class="crse-cate">Web Development | {{fav.course_id?.course_name}}</a>
+                                        <div class="auth1lnkprce">
+                                            <p class="cr1fot">By <a [routerLink]="['/profil/'+fav.course_id?.teacher_id._id]" >
+                                                {{fav.course_id?.teacher_id?.firstname}}</a></p>
+                                            <div class="prce142">${{fav.course_id?.price}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                            </div>									
+                        </div>																		
+                    </div>								
+                </div>				
+            </div>
+        </div>
+    </div>
+   
+</div>

@@ -1,0 +1,66 @@
+#more {display: none;}
+
+form {
+    /* Uniquement centrer le formulaire sur la page */
+    margin: 0 auto;
+    width: 400px;
+    /* Encadré pour voir les limites du formulaire */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+  }
+  .box2 {
+    height: 600px
+}
+.card-header {
+    background: none
+}
+
+  
+
+
+
+  .card-number>input {
+    border: none
+}
+
+.card-number {
+    border-bottom: 1px solid lightgray
+}
+
+.card-number>input::-webkit-input-placeholder {
+    color: peachpuff;
+    font-size: 25px
+}
+
+.card-number>input::-moz-placeholder {
+    color: peachpuff;
+    font-size: 25px
+}
+
+.card-number>input:-ms-input-placeholder {
+    color: peachpuff;
+    font-size: 25px
+}
+
+.card-number>input::placeholder {
+    color: peachpuff;
+    font-size: 25px
+}
+
+input.focus,
+input:focus {
+    outline: 0;
+    box-shadow: none !important
+}
+
+.card-number.hover,
+.card-number:hover {
+    outline: 0;
+    box-shadow: none !important;
+    border-bottom: 1px solid lightskyblue
+}
+.form-group>input {
+    border: none;
+    border-bottom: 1px solid lightgray
+}

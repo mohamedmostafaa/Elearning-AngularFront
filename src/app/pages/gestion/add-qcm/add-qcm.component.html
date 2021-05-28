@@ -1,0 +1,60 @@
+
+	<div class="wrapper">
+		<div class="sa4d25">
+			<div class="container">			
+				<div class="row">
+					<div class="col-lg-12">	
+						<h2 class="st_title"><i class="uil uil-analysis"></i> Create New Qcm Question</h2>
+					</div>					
+				</div>				
+				<div class="row">
+					<div class="col-12">
+                        <div class="general_info10">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">															
+                                    <div class="ui search focus mt-30 lbel25">
+                                        <label>Question Title*</label>
+                                        <div class="ui left icon input swdh19">
+                            <input class="prompt srch_explore" type="text"
+                             placeholder="Insert your question title." 
+                             [(ngModel)]="title" name="title"  maxlength="60"  >															
+                                          
+                                        </div>
+                                    </div>									
+                                </div>
+                                
+                                
+
+
+
+                            </div>
+                            <div class="row" *ngFor="let r of reponses ; let i = index">
+                                <div class="col-lg-6 col-md-6">															
+                                    <div class="ui search focus mt-30 lbel25">
+                                        <label>response </label>
+                                        <div class="ui left icon input swdh19">
+                            <input class="prompt srch_explore" type="text"
+                             placeholder="Insert your question title." 
+                             [(ngModel)]="r.reponse" name="reponse"  maxlength="60"   >															
+                                            <div class="badge_num">
+                                                <input type="checkbox" 
+                                                name="isValid" 
+                                                [(ngModel)]="r.isValid">
+                                            </div>
+                                        </div>
+                                    </div>									
+                                </div>
+                                
+                                
+
+
+
+                            </div>
+                        </div>
+                        <button class="part_btn_save prt-sv" type="submit" (click)="saveQcm()">Save Qcm</button>
+
+                    </div>
+                </div>
+</div>
+</div>
+</div>

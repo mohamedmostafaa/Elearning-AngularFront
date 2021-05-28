@@ -1,0 +1,122 @@
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container">			
+            <div class="row">
+              
+                <div class="col-xl-9 col-lg-8">
+                  
+
+                   
+                   
+                    <div class="section3125 mt-30">
+                        <h4 class="item_title">All cours</h4>
+
+                        <div class="la5lo1">
+                            <div  >
+                                <div class="item" *ngFor="let cour of cours"  >
+                                    <div class="fcrse_1 mb-20 " style="width: 30%; margin:5px">
+                                        <a [routerLink]="['/cour-detail',cour._id]"  class="fcrse_img" *ngIf="cour.cover">
+                                       
+                                           
+                                                <img [src]="imagePath + cour.cover.path" style="height:200px">
+                                          
+                                          
+                                            <div class="course-overlay">
+                                                <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                                <div class="crse_timer" >
+                                                    12 hours
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="fcrse_content">
+                                            <div class="eps_dots more_dropdown">
+                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                <div class="dropdown-content">
+                                                    <span><i class='uil uil-share-alt'></i>Share</span>
+                                                    <span  ><i class="uil uil-clock-three"></i>Save</span>
+                                                    <span><i class='uil uil-ban'></i>Not Interested</span>
+                                                    <span><i class="uil uil-windsock"></i>Report</span>
+                                                 </div>																											
+                                            </div>
+                                            <div class="vdtodt">
+                                                <span class="vdt14">15 views</span>
+                                                <span class="vdt14">{{cour?.createdOn |date}}</span>
+                                            </div>
+                                            <a class="crse14s" [routerLink]="['/cour-detail/'+ cour?._id]" routerLinkActive="router-link-active" >{{cour?.subtitle}}</a>
+                                            <a href="#" class="crse-cate">{{cour?.speciality_id?.speciality_name_en}} | {{cour.filiere_id?.filiere_name_en}}</a>
+                                            <div class="auth1lnkprce">
+                                                <p class="cr1fot">By <a [routerLink]="['/profil/'+cour?.teacher_id?._id]"  >{{cour?.teacher_id?.firstname}} {{cour?.teacher_id?.lastname}}</a></p>
+                                                <div class="prce142">{{cour?.price}} $</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+</div>
+<div class="col-xl-3 col-lg-4 ">
+    <div class="right_side ">
+        <div class="">
+<div class="fcrse_3">
+    <div class="cater_ttle">
+        <h4>Filter Par Prix</h4>
+    </div>
+    <ul class="allcate15">
+      
+        <li class="ct_item">
+        <input #payee type="radio" (change)="Cpayee(payee.checked)" name="x"> 
+        Payée
+        </li>
+
+        <li class="ct_item">
+            <input #gratuit type="radio" (change)="Cgratuit(gratuit.checked)"
+              name="x" > 
+            Gratuit
+        </li>
+        
+    </ul>
+    <div class="cater_ttle fcrse_3">
+        <h4>Filter Par Durée</h4>
+    </div>
+    <ul class="allcate15">
+      
+        <li class="ct_item"><input  type="radio" > 0-2h</li>
+
+        <li class="ct_item"><input  type="radio" > 3-6h</li>
+
+        <li class="ct_item"><input  type="radio" > Plus de 6h</li>
+        
+    </ul>
+
+    <div class="cater_ttle fcrse_3">
+        <h4>Filter Par Notes</h4>
+    </div>
+    <ul class="allcate15">
+        <li class="ct_item"><input  type="radio" > à partir de 3</li>
+        <li class="ct_item"><input  type="radio" > à partir de 4</li>
+        
+    </ul>
+    
+</div>
+
+
+
+
+
+
+</div></div></div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>

@@ -1,0 +1,80 @@
+
+<div class="wrapper ">		
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">						
+                    <div class="title126">	
+                        <h2>About Us</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact1256">
+        <div class="container">
+            <div class="row">					
+              
+              
+                <div class="col-lg-8">
+                    <div class="contact_map">
+                        <div id="map"></div>
+                    </div>												
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact_info">
+                        <div class="checkout_title">
+                            <h4>Contact Information</h4>
+                            <img src="assets/images/line.svg" alt="">
+                        </div>
+                        <ul class="contact_list_info">
+                            <li><div class="txt_cntct"><span class="cntct_895"><i class="uil uil-location-point"></i>Main Address :</span><p>Rue ceinture,Sahloul 4054 Sousse,Tunis</p></div></li>
+                            <li><div class="txt_cntct"><span class="cntct_895"><i class="uil uil-envelope"></i>Email Address :</span><p>boubaker.takwa@gmail.com<br> ameur.bilel@@hotmail.com</p></div></li>
+                            <li><div class="txt_cntct"><span class="cntct_895"><i class="uil uil-mobile-android-alt"></i>Phone Number :</span><p>+21624936963, +21625238092</p></div></li>
+                        </ul>
+                        <div class="edututs_links_social">
+                            <ul class="tutor_social_links">
+                                <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                               
+                                <li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>												
+                </div>
+            </div>
+        </div>
+    </div>
+    	<!-- Map Box JS -->
+	<script src='../../../unpkg.com/es6-promise%404.2.4/dist/es6-promise.auto.min.js'></script>
+	<script src="../../../unpkg.com/%40mapbox/mapbox-sdk%400.10.0/umd/mapbox-sdk.min.js"></script>
+    <script>
+		mapboxgl.accessToken = 'pk.eyJ1IjoiZ2FtYm9sIiwiYSI6ImNqdm03bzYydDE2cW00YWwyeHprd3FqamcifQ.HBy4R4sRcXgbgn2OteqFkQ';
+		var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+		mapboxClient.geocoding.forwardGeocode({
+		query: 'Ludhiana, India',
+		autocomplete: false,
+		limit: 1
+		})
+		.send()
+		.then(function (response) {
+		if (response && response.body && response.body.features && response.body.features.length) {
+		var feature = response.body.features[0];
+	 
+		var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v11',
+		center: [75.8429,30.9042],
+		zoom: 10
+		});				
+
+		new mapboxgl.Marker()
+		.setLngLat(feature.center)
+		.addTo(map);
+		}
+		
+		// Add zoom and rotation controls to the map.
+		map.addControl(new mapboxgl.NavigationControl());
+		});						
+	</script>
+</div>
